@@ -1,0 +1,71 @@
+--autentication token
+http://localhost:8080/usuario?usuario=moy&pass=pwd
+
+
+--guardar Compra
+POST http://localhost:8080/lista-compras/compra
+
+request 
+{
+    "listasComprasTO":[{
+  "Cliente": 720010,
+  "Nombre Lista": "Lista Mensual",
+  "lista": [{
+	  "idProducto": 18156,
+	  "cantidad": 5
+  		}]
+
+},
+{
+  "Cliente": 710020,
+	"Nombre Lista": "Lista Semanal",
+	 "lista" :[	{
+	   "idProducto":10200,
+		"cantidad": 5},{
+		"idProducto":25020,
+		"cantidad": 6},{
+		"idProducto":10170,
+		"cantidad": 1}]
+
+},
+  {
+  "Cliente": 710020,
+  "Nombre Lista": "Lista Anual",
+	"lista":[{
+	"idProducto":10280,
+	"cantidad": 2},{
+	"idProducto":30001,
+	"cantidad": 3},{
+	"idProducto":10200,
+	"cantidad": 7},{
+	"idProducto":25020,
+	"cantidad": 2},{
+	"idProducto":10170,
+	"cantidad": 9}]
+  }
+]
+
+}
+
+--modificar compra 
+PUT http://localhost:8080/lista-compras/modificar-compra/720010
+request
+{
+    "nombreNuevo":"Lista Actualizada",
+    "lista": [{
+	  "idProducto": 25020,
+	  "cantidad": 2
+  		},{
+    "idProducto": 10170,
+	  "cantidad": 9      
+          }]
+
+}
+
+--Eliminar Compra 
+DELETE http://localhost:8080/lista-compras/borrar-compra/3
+
+--obtener lista de compras
+
+http://localhost:8080/lista-compras/buscar-compras-id-cliente/710020
+
